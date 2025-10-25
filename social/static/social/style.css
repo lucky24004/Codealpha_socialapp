@@ -1,0 +1,314 @@
+/* ===================== Reset & Base ===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #f0f2f5;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ===================== Navbar ===================== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #6b73ff;
+  color: #fff;
+  padding: 15px 30px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffe600;
+}
+
+/* ===================== Container ===================== */
+.container {
+  max-width: 700px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* ===================== Login & Signup Card ===================== */
+.login-card, .signup-card {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 45px 35px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover, .signup-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+.login-card h2, .signup-card h2 {
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #333;
+  font-size: 26px;
+}
+
+/* Inputs neatly aligned */
+.login-card input, .signup-card input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card input:focus, .signup-card input:focus {
+  border-color: #6b73ff;
+  box-shadow: 0 0 6px rgba(107,115,255,0.3);
+  outline: none;
+}
+
+/* Buttons aligned properly */
+.login-card button, .signup-card button, .container button {
+  width: 100%;
+  padding: 12px;
+  background: #6b73ff;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.login-card button:hover, .signup-card button:hover, .container button:hover {
+  background: #000dff;
+  transform: translateY(-2px);
+}
+
+/* Links inside cards */
+.login-card a, .signup-card a {
+  display: block;
+  margin-top: 18px;
+  font-size: 14px;
+  color: #6b73ff;
+  text-decoration: none;
+}
+
+.login-card a:hover, .signup-card a:hover {
+  text-decoration: underline;
+}
+
+/* Better spacing between fields on signup */
+.signup-card input[type="text"], .signup-card input[type="email"], .signup-card input[type="password"] {
+  margin-bottom: 20px;
+}
+
+/* ===================== Posts ===================== */
+.post {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.post strong {
+  color: #6b73ff;
+}
+
+.post p {
+  margin: 10px 0;
+}
+
+.like-btn {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #ff4b5c;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.like-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ===================== Form in Home ===================== */
+.container form input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+/* ===================== Delete Button ===================== */
+.delete-btn {
+  color: #ff4b5c;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.delete-btn:hover {
+  text-decoration: underline;
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* ===================== Footer ===================== */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+  color: #555;
+  font-size: 14px;
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 480px) {
+  .container, .login-card, .signup-card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin: 5px 0;
+  }
+}
+
+/* ===================== Updated Login Page (Modern Design) ===================== */
+.login-card {
+  position: relative;
+  max-width: 360px;
+  margin: 100px auto;
+  padding: 60px 30px 40px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Blue top bar */
+.login-card::before {
+  content: "SocialHub";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #2f6fed;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: left;
+  padding: 14px 20px;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+/* Home link */
+.login-card::after {
+  content: "Home";
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Title */
+.login-card h2 {
+  margin-top: 40px;
+  margin-bottom: 25px;
+  color: #1e3fa1;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Inputs */
+.login-card input {
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  padding: 12px 15px;
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+.login-card input:focus {
+  border-color: #2f6fed;
+  box-shadow: 0 0 6px rgba(47, 111, 237, 0.3);
+  outline: none;
+}
+
+/* Button */
+.login-card button {
+  width: 100%;
+  padding: 12px;
+  background: #2f6fed;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-card button:hover {
+  background: #1e3fa1;
+}
+
+/* Bottom text */
+.login-card p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.login-card a {
+  color: #2f6fed;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-card a:hover {
+  text-decoration: underline;
+}
+
+/* Footer under login */
+.login-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #888;
+}

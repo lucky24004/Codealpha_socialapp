@@ -1,0 +1,54 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="{% static 'social/style.css' %}">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — SocialHub</title>
+ 
+</head>
+<body>
+  <nav>
+    <div><strong>SocialHub</strong></div>
+    <div><a href="{% url 'social:home' %}">Home</a></div>
+  </nav>
+
+  <div class="container" style="max-width:420px;margin-top:3rem;">
+    <h2 style="text-align:center;color:#2563eb;">Log in</h2>
+
+    <form method="post" action="{% url 'social:login' %}">
+      {% csrf_token %}
+      {% if error %}
+        <div class="card" style="color:#b91c1c;padding:8px;margin-bottom:8px;">
+          {{ error }}
+        </div>
+      {% endif %}
+
+      <div>
+        <label for="id_username">Username</label>
+        <input type="text" name="username" id="id_username" required>
+      </div>
+
+      <div style="margin-top:8px;">
+        <label for="id_password">Password</label>
+        <input type="password" name="password" id="id_password" required>
+      </div>
+
+      {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+      {% endif %}
+
+      <div style="margin-top:12px;">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+
+    <p style="margin-top:12px;text-align:center;">
+      Don't have an account? <a href="{% url 'social:signup' %}">Sign up</a>
+    </p>
+  </div>
+
+  <footer style="margin-top:40px;text-align:center;color:#666;">© SocialHub</footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+from django.urls import path
+from . import views
+
+app_name = 'social'
+
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('signup/', views.signup, name='signup'),
+    path('login/', views.user_login, name='login'),
+    path('logout/', views.user_logout, name='logout'),
+    path('profile/<str:username>/', views.profile, name='profile'),
+    path('profile/edit/', views.edit_profile, name='edit_profile'),
+    path('like/<int:post_id>/', views.like_post, name='like_post'),
+    path('post/delete/<int:post_id>/', views.delete_post, name='delete_post'),
+]
+]
+]    

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Profile</title>
+  <link rel="stylesheet" href="{% static 'social/style.css' %}">
+</head>
+<body>
+
+<nav>
+  <div><strong>SocialHub</strong></div>
+  <div>
+    <a href="/">Home</a>
+    <a href="{% url 'social:profile' %}">Profile</a>
+    <a href="{% url 'social:logout' %}">Logout</a>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>Edit Profile</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+  </form>
+</div>
+
+<footer>© 2025 SocialHub</footer>
+</body>
+</html>

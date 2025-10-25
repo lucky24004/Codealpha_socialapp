@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ user.username }}'s Profile</title>
+  <link rel="stylesheet" href="{% static 'social/style.css' %}">
+</head>
+<body>
+
+<nav>
+  <div><strong>SocialHub</strong></div>
+  <div>
+    <a href="/">Home</a>
+    <a href="{% url 'social:logout' %}">Logout</a>
+  </div>
+</nav>
+
+<div class="container profile-container">
+  <h2>{{ user.username }}'s Profile</h2>
+  <p><strong>Username:</strong> {{ user.username }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>Bio:</strong> {{ user.profile.bio }}</p>
+  <!-- Add more fields from Profile if needed -->
+</div>
+
+<footer>© 2025 SocialHub</footer>
+</body>
+</html>

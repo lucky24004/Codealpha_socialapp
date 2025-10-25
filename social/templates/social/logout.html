@@ -1,0 +1,24 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Logged Out — SocialHub</title>
+  <link rel="stylesheet" href="{% static 'social/style.css' %}">
+</head>
+<body>
+  <nav>
+    <div><strong>SocialHub</strong></div>
+    <div>
+      <a href="{% url 'social:home' %}">Home</a>
+      <a href="{% url 'social:login' %}">Login</a>
+      <a href="{% url 'social:signup' %}">Sign Up</a>
+    </div>
+  </nav>
+
+  <div class="container" style="text-align:center;margin-top:3rem;">
+    <h2>You have successfully logged out!</h2>
+    <p><a href="{% url 'social:login' %}">Click here to log in again</a></p>
+  </div>
+</body>
+</html>

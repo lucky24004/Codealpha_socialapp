@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SocialHub</title>
+  <link rel="stylesheet" href="{% static 'social/style.css' %}">
+</head>
+<body>
+<nav>
+  <div><strong>SocialHub</strong></div>
+  <div>
+    <a href="/">Home</a>
+    {% if user.is_authenticated %}
+     <a href="{% url 'social:profile' request.user.username %}">Profile</a>
+      <a href="{% url 'social:logout' %}">Logout</a>
+    {% else %}
+      <a href="{% url 'social:login' %}">Login</a>
+      <a href="{% url 'social:signup' %}">Signup</a>
+    {% endif %}
+  </div>
+</nav>
+
+<div class="container">
+  {% if user.is_authenticated %}
+    <h2>Welcome, {{ user.username }} 👋</h2>
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn-post">Post</button>
+    </form>
+
+    <h3>Recent Posts</h3>
+    {% for post in posts %}
+      <div class="post">
+        <strong>@{{ post.user.username }}</strong>
+        <p>{{ post.content }}</p>
+        <div class="post-actions">
+          <a class="like-btn" href="{% url 'social:like_post' post.id %}">
+            ❤️ Like ({{ post.likes.count }})
+          </a>
+          {% if post.user == user %}
+            <a class="delete-btn" href="{% url 'social:delete_post' post.id %}">
+              🗑 Delete
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% empty %}
+      <p>No posts yet. Create one above!</p>
+    {% endfor %}
+  {% else %}
+    <p>Please <a href="{% url 'social:login' %}">login</a> to see posts and create your own.</p>
+  {% endif %}
+</div>
+
+<footer>© 2025 SocialHub</footer>
+</body>
+</html>
