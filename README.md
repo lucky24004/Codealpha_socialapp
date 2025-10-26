@@ -76,9 +76,9 @@ Inside `socialhub/settings.py`, static and media configurations are:
 
 🎨 UI Preview
 Page	Preview  
-Login Page	
-Home Feed	
-Profile	
+![Login Page](task_codealpha.png)
+![Home](home.png)	
+![Signup](signup.png)
 
 
 
